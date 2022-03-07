@@ -1,0 +1,67 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family:'Lucida Sans', sans-serif;
+    font-weight: normal;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(to right, #00AAFF, #00FF6C);
+}
+
+.calculator-grid {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    /*vytvoří mezery*/
+    min-height: 100vh; 
+    /*čtyři sloupce, 100px široké*/
+    grid-template-columns: repeat(4, 100px);
+    /*minmax: při zadávání extra dlouhého čísla se rozroste "display"*/  
+    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+}
+
+.calculator-grid > button {
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid white;
+    /*smaže defaultní obrysy, jsou-li*/
+    outline: none;
+    background-color: rgba( 255, 255, 255, .75);
+
+}
+
+.calculator-grid > button:hover {
+    background-color: rgba( 255, 255, 255, .9);
+}
+
+.span-two {
+    grid-column: span 2;
+}
+
+.output {
+    /*rozšíří třídu na celou šířku nad tlačítky - od prvního (1) do posledního sloupce (-1)*/
+    grid-column: 1/-1; 
+    background-color: rgba( 0, 0, 0, .75);
+    /*zarovnání textu v displeji*/
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    /*vertikální zarovnání*/
+    flex-direction: column;
+    padding: 10px;
+    /*zalamování textu v celku*/
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.output .previous-operand {
+    color: rgba( 255, 255, 255, .75);
+    font-size: 1.5rem;
+}
+
+.output .current-operand {
+    color: white;
+    font-size: 2.5rem;
+}

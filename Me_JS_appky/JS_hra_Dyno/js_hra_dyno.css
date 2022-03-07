@@ -1,0 +1,50 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+#game {
+    width: 500px;
+    height: 200px;
+    border: 1px solid black;
+}
+
+#character {
+    width: 20px;
+    height: 50px;
+    background-color: red;
+    /*abychom s ním mohli hýbat*/
+    position: relative;
+    /*přesunutí dolů z levého horního rohu*/
+    top: 150px;
+}
+    /*vytvoření třídy pro JS - JS ji zavolá ve chvíli, kdy se má vykonat skok*/
+.animate {
+    animation: jump 500ms;
+}
+
+@keyframes jump {
+    0%{top: 150px}
+    30%{top: 100px}
+    70%{top: 100px}
+    100%{top: 150px}
+}
+
+#block {
+    width: 20px;
+    height: 20px;
+    background-color: blue;
+    position: relative;
+    /*umístění do pravého dolního rohu*/
+    top: 130px;
+    left: 480px;
+    /*přidání animace bloku*/   /*linear - udělá takový smooth efekt*/
+    animation: block 1s infinite linear;
+}
+
+/*Vytvoření animace pro: pohyb bloku vůči našemu charakteru*/
+@keyframes block {
+    0%{left: 480px;}
+    100% {left: -40px;}
+}
+
